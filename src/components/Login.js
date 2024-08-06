@@ -6,6 +6,8 @@ import { auth } from '../utils/firebase';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux'
 import { addUser, removeUser } from '../utils/userSclice'
+import {netflixlogo} from "../utils/constants";
+import {AVATAR_LOGO} from "../utils/constants";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -32,7 +34,7 @@ const Login = () => {
           const user = userCredential.user;
           console.log(user);
           updateProfile(user, {
-            displayName: name.current.value, photoURL: "https://example.com/jane-q-user/profile.jpg"
+            displayName: name.current.value, photoURL: AVATAR_LOGO
           }).then(() => {
             const {uid,email,displayName, photoURL} = auth.currentUser;
             dispatch(addUser({uid:uid,email:email,displayName:displayName, photoURL:photoURL}));
@@ -52,14 +54,6 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in 
           const user = userCredential.user;
-          console.log(user);
-          updateProfile(user, {
-            displayName: name.current.value, photoURL: "https://example.com/jane-q-user/profile.jpg"
-          }).then(() => {
-            navigate('/browse');
-          }).catch((error) => {
-            setErrMessage(error)
-          });
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -73,7 +67,7 @@ const Login = () => {
     <div>
       <Header />
       <div>
-        <img className='absolute' src='https://assets.nflxext.com/ffe/siteui/vlv3/21a8ba09-4a61-44f8-8e2e-70e949c00c6f/6678e2ea-85e8-4db2-b440-c36547313109/IN-en-20240722-POP_SIGNUP_TWO_WEEKS-perspective_WEB_3457a8b1-284d-4bb5-979e-2a2e9bb342b3_large.jpg' />
+        <img className='absolute' src={netflixlogo} />
       </div>
       <form className='w-3/12 absolute p-12 bg-black my-36 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80'
         onSubmit={(e) => e.preventDefault()}>
