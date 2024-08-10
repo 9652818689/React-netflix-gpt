@@ -19,6 +19,15 @@
 -bugix: if the user is not logge in redirect /browse to login page and vice versa
 -unsubscribed to the onauthstatechanged callback
 -add hardcoded values to the constansts file
+-Register TMDB & create an a pp & get acceess token
+- get data from TMDB now playing movies list API
+-custom Hook for Now Playing Movies 
+- Create movieSlice
+-Update store with movies data
+-Planning for Main container & secondary container
+- Fetch data for Trailer video
+-Embeded the youtube video and make it autoplay and mute
+- Tailwind Classes to make Main Container look awesome
 
 
 # features
